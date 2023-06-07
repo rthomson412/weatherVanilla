@@ -47,7 +47,20 @@
           </button>
         </form>
       </section>
-      <section id="currentForecast" class="currentForecast"></section>
+      <section
+        id="currentForecast"
+        class="currentForecast fade-in"
+        role="region"
+        aria-labelledby="currentForecast__location"
+      >
+        <h2 id="currentForecast__location" class="currentForecast__location">
+          Current Conditions
+        </h2>
+        <div
+          id="currentForecast__conditions"
+          class="currentForecast__conditions"
+        ></div>
+      </section>
       <nav id="navButtons" class="navButtons"></nav>
       <section id="dailyForecast" class="dailyForecast"></section>
     </main>
