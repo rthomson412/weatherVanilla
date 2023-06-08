@@ -15,7 +15,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caudex&family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Caudex&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -43,7 +43,7 @@
             aria-label="Submit Search"
           >
             <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-magnifying-glass fa-spin"></i>
+            <i class="fa-solid fa-magnifying-glass fa-beat-fade"></i>
           </button>
         </form>
       </section>
@@ -61,7 +61,53 @@
           class="currentForecast__conditions"
         ></div>
       </section>
-      <nav id="navButtons" class="navButtons"></nav>
+      <nav id="navButtons" class="navButtons fade-in">
+        <button
+          id="getLocation"
+          class="button"
+          title="Get Location"
+          aria-label="Get the current weather conditions for your current location"
+        >
+          <i class="fa-solid fa-location-dot"></i>
+          <i class="fa-solid fa-location-dot fa-beat-fade"></i>
+        </button>
+        <button
+          id="home"
+          class="button"
+          title="Home weather"
+          aria-label="Get the current weather conditions for your home location"
+        >
+          <i class="fa-solid fa-house"></i>
+          <i class="fa-solid fa-house fa-beat-fade"></i>
+        </button>
+        <button
+          id="saveLocation"
+          class="button"
+          title="Save Location"
+          aria-label="Save the current location as your home location"
+        >
+          <i class="fa-regular fa-bookmark"></i>
+          <i class="fa-regular fa-bookmark fa-beat-fade"></i>
+        </button>
+        <button
+          id="unit"
+          class="button"
+          title="Toggle Measurement Units"
+          aria-label="Toggle between metric and imperial measurement units"
+        >
+          <i class="fa-solid fa-chart-simple"></i>
+          <i class="fa-solid fa-chart-simple fa-beat-fade"></i>
+        </button>
+        <button
+          id="refresh"
+          class="button"
+          title="Refresh Weather"
+          aria-label="Refresh the current weather conditions"
+        >
+          <i class="fa-solid fa-arrows-rotate"></i>
+          <i class="fa-solid fa-arrows-rotate fa-beat-fade"></i>
+        </button>
+      </nav>
       <section id="dailyForecast" class="dailyForecast"></section>
     </main>
   </body>
