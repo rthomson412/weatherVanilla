@@ -18,6 +18,7 @@
       href="https://fonts.googleapis.com/css2?family=Caudex&display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/main.min.css">
   </head>
   <body>
     <main>
@@ -108,7 +109,19 @@
           <i class="fa-solid fa-arrows-rotate fa-beat-fade"></i>
         </button>
       </nav>
-      <section id="dailyForecast" class="dailyForecast"></section>
+      <hr class="fade-in" />
+      <section
+        id="dailyForecast"
+        class="dailyForecast fade-in"
+        role="region"
+        aria-labelledby="dailyForecast__title"
+      >
+        <h2 id="dailyForecast__title" class="dailyForecast__title offscreen">
+          Six Day Forecast
+        </h2>
+        <div id="dailyForecast__contents" class="dailyForecast__contents"></div>
+      </section>
+      <p id="confirmation" class="offscreen" aria-live="assertive"></p>
     </main>
   </body>
 </html>
