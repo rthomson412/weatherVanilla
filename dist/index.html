@@ -15,14 +15,15 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Caudex&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="css/main.min.css">
+    <link rel="stylesheet" href="css/main.min.css" />
+    <script src="js/main.js" type="module"></script>
   </head>
   <body>
     <main>
-      <h1>Responsive Web Application</h1>
+      <h1 class="offscreen">Responsive Web Application</h1>
       <section id="searchBar" class="searchBar">
         <form id="searchBar__form" class="searchBar__form" role="search">
           <label for="searchBar__text" class="offscreen"
@@ -44,7 +45,7 @@
             aria-label="Submit Search"
           >
             <i class="fa-solid fa-magnifying-glass"></i>
-            <i class="fa-solid fa-magnifying-glass fa-beat-fade"></i>
+            <i class="fa-solid fa-magnifying-glass fa-beat-fade none"></i>
           </button>
         </form>
       </section>
@@ -70,7 +71,7 @@
           aria-label="Get the current weather conditions for your current location"
         >
           <i class="fa-solid fa-location-dot"></i>
-          <i class="fa-solid fa-location-dot fa-beat-fade"></i>
+          <i class="fa-solid fa-location-dot fa-beat-fade none"></i>
         </button>
         <button
           id="home"
@@ -79,7 +80,7 @@
           aria-label="Get the current weather conditions for your home location"
         >
           <i class="fa-solid fa-house"></i>
-          <i class="fa-solid fa-house fa-beat-fade"></i>
+          <i class="fa-solid fa-house fa-beat-fade none"></i>
         </button>
         <button
           id="saveLocation"
@@ -88,7 +89,7 @@
           aria-label="Save the current location as your home location"
         >
           <i class="fa-regular fa-bookmark"></i>
-          <i class="fa-regular fa-bookmark fa-beat-fade"></i>
+          <i class="fa-regular fa-bookmark fa-beat-fade none"></i>
         </button>
         <button
           id="unit"
@@ -97,7 +98,7 @@
           aria-label="Toggle between metric and imperial measurement units"
         >
           <i class="fa-solid fa-chart-simple"></i>
-          <i class="fa-solid fa-chart-simple fa-beat-fade"></i>
+          <i class="fa-solid fa-chart-simple fa-beat-fade none"></i>
         </button>
         <button
           id="refresh"
@@ -106,7 +107,7 @@
           aria-label="Refresh the current weather conditions"
         >
           <i class="fa-solid fa-arrows-rotate"></i>
-          <i class="fa-solid fa-arrows-rotate fa-beat-fade"></i>
+          <i class="fa-solid fa-arrows-rotate fa-beat-fade none"></i>
         </button>
       </nav>
       <hr class="fade-in" />
