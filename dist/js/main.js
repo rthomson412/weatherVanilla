@@ -17,6 +17,21 @@ const getGeoWeather = (event) => {
       const mapIcon = document.querySelector(".fa-location-dot");
       addSpinner(mapIcon);
     }
-    // if (!navigator.geolocation) return geoError();
-    // navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+    if (!navigator.geolocation) return geoError();
+    navigator.geolocation.getCurrentPosition(geoSuccess, geoError);
+  };
+
+  const geoError = (errObj) => {
+    const errMsg = errObj ? errObj.message : "Geolocation not supported";
+    displayError(errMsg, errMsg);
+  };
+  
+  const geoSuccess = (position) => {
+    const myCoordsObj = {
+      lat: position.coords.latitude,
+      lon: position.coords.longitude,
+      name: `Lat:${position.coords.latitude} Long:${position.coords.longitude}`
+    };
+    setLocationObject(currentLoc, myCoordsObj);
+    updateDataAndDisplay(currentLoc);
   };

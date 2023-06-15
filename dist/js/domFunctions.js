@@ -8,3 +8,8 @@ export const addSpinner = (element) => {
     element.nextElementSibling.classList.toggle("block");
     element.nextElementSibling.classList.toggle("none");
   };
+
+  export const displayError = (headerMsg, srMsg) => {
+    updateWeatherLocationHeader(headerMsg);
+    updateScreenReaderConfirmation(srMsg);
+  };
