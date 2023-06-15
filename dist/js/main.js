@@ -1,6 +1,10 @@
+import {
+    setLocationObject
+  } from "./dataFunctions.js";
+
 import CurrentLocation from "./CurrentLocation.js";
 
-import {addSpinner} from "./domFunctions.js";
+import {addSpinner, displayError } from "./domFunctions.js";
 
 const currentLoc = new CurrentLocation();
 
@@ -33,5 +37,6 @@ const getGeoWeather = (event) => {
       name: `Lat:${position.coords.latitude} Long:${position.coords.longitude}`
     };
     setLocationObject(currentLoc, myCoordsObj);
-    updateDataAndDisplay(currentLoc);
+    // updateDataAndDisplay(currentLoc);
+    console.log(currentLoc);
   };
