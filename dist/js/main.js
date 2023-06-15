@@ -37,6 +37,5 @@ const getGeoWeather = (event) => {
       name: `Lat:${position.coords.latitude} Long:${position.coords.longitude}`
     };
     setLocationObject(currentLoc, myCoordsObj);
-    // updateDataAndDisplay(currentLoc);
-    console.log(currentLoc);
+    updateDataAndDisplay(currentLoc);
   };
