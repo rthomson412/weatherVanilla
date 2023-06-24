@@ -1,10 +1,10 @@
 import {
-  setLocationObject, getHomeLocation, getWeatherFromCoords
+  setLocationObject, getHomeLocation, cleanText
 } from "./dataFunctions.js";
 
 import CurrentLocation from "./CurrentLocation.js";
 
-import { addSpinner, displayError, updateScreenReaderConfirmation } from "./domFunctions.js";
+import { addSpinner, displayError, updateScreenReaderConfirmation, displayApiError } from "./domFunctions.js";
 
 const currentLoc = new CurrentLocation();
 
@@ -20,6 +20,12 @@ const initApp = () => {
   unitButton.addEventListener("click", setUnitPref);
   const refreshButton = document.getElementById("refresh");
   refreshButton.addEventListener("click", refreshWeather);
+  const locationEntry = document.getElementById("searchBar__form");
+  locationEntry.addEventListener("submit", submitNewLocation);
+   // set up
+   setPlaceholderText();
+   // load weather
+   loadWeather();
 }
 
 document.addEventListener("DOMContentLoaded", initApp);
@@ -96,7 +102,47 @@ const saveLocation = () => {
   }
 };
 
+const setUnitPref = () => {
+  const unitIcon = document.querySelector(".fa-chart-simple");
+  addSpinner(unitIcon);
+  currentLoc.toggleUnit();
+  updateDataAndDisplay(currentLoc);
+};
+
+const refreshWeather = () => {
+  const refreshIcon = document.querySelector(".fa-arrows-rotate");
+  addSpinner(refreshIcon);
+  updateDataAndDisplay(currentLoc);
+};
+
+const submitNewLocation = async (event) => {
+  event.preventDefault();
+  const text = document.getElementById("searchBar__text").value;
+  const entryText = cleanText(text);
+  if (!entryText.length) return;
+  const locationIcon = document.querySelector(".fa-magnifying-glass");
+  addSpinner(locationIcon);
+  const coordsData = await getCoordsFromApi(entryText, currentLoc.getUnit());
+  if (coordsData) {
+    if (coordsData.cod === 200) {
+      const myCoordsObj = {
+        lat: coordsData.coord.lat,
+        lon: coordsData.coord.lon,
+        name: coordsData.sys.country
+          ? `${coordsData.name}, ${coordsData.sys.country}`
+          : coordsData.name
+      };
+      setLocationObject(currentLoc, myCoordsObj);
+      updateDataAndDisplay(currentLoc);
+    } else {
+      displayApiError(coordsData);
+    }
+  } else {
+    displayError("Connection Error", "Connection Error");
+  }
+};
+
 const updateDataAndDisplay = async (locationObj) => {
-  const weatherJson = await getWeatherFromCoords(locationObj);
-  if (weatherJson) updateDisplay(weatherJson, locationObj);
+  // const weatherJson = await getWeatherFromCoords(locationObj);
+  // if (weatherJson) updateDisplay(weatherJson, locationObj);
 };
