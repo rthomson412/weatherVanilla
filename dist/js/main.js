@@ -1,5 +1,5 @@
 import {
-  setLocationObject, getHomeLocation, cleanText
+  setLocationObject, getHomeLocation, cleanText, getCoordsFromApi
 } from "./dataFunctions.js";
 
 import CurrentLocation from "./CurrentLocation.js";
@@ -23,7 +23,7 @@ const initApp = () => {
   const locationEntry = document.getElementById("searchBar__form");
   locationEntry.addEventListener("submit", submitNewLocation);
    // set up
-   setPlaceholderText();
+  //  setPlaceholderText();
    // load weather
    loadWeather();
 }
