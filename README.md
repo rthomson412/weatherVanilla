@@ -4,6 +4,6 @@
 
 ## Built using vanilla Javascript, SCSS and HTML
 
-## PWA project
+## PWA project planned
 
 [Hosted on AWS Amplify](https://main.d1bhhtgi3oi868.amplifyapp.com/)
